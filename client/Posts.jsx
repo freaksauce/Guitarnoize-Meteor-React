@@ -4,15 +4,17 @@ Posts = React.createClass({
     postsData: React.PropTypes.array.isRequired,
   },
 
-  componentDidMount() {
-    console.log(this.props.postsData);
-  },
-
   render() {
+
     function item(post) {
-      return <li key={post._id}>{post.title}</li>;
-    };
-    return <ul>{this.props.postsData.map(item)}</ul>;
+      return <PostItem postData={post} />
+    }
+
+    return <section className="">
+          <h2 className="">Posts</h2>
+          {this.props.postsData.map(item)}
+        </section>;
+
   }
 
 });

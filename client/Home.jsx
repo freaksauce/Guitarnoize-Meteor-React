@@ -24,10 +24,6 @@ Home = React.createClass({
     };
   },
 
-  handleSubmit() {
-    console.log('handleSubmit');
-  },
-
   render() {
     if (!this.state.apiCallComplete) {
       return (<div>Loading...</div>);
