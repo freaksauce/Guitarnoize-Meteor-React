@@ -9,7 +9,7 @@ PostItem = React.createClass({
   },
 
   render() {
-    return <a className="list-group-item" href="/post/{this.props.postData._id}">{this.props.postData.title}</a>
+    return <a className="list-group-item" href="/post/{this.props.postData._id}" dangerouslySetInnerHTML={{__html: this.props.postData.title}} />
   }
 
 });
