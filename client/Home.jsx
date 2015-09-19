@@ -3,35 +3,25 @@ Session.set('ppp', 10);
 
 Home = React.createClass({
 
-  mixins: [ReactMeteorData],
-
-  getMeteorData() {
+  componentDidMount() {
     Meteor.call('getPosts', Session.get('ppp'), (error, result) => {
 
       if (error) {
         console.log(error);
       }else{
-        // console.log('limit :'+Session.get('ppp'));
-        console.log(result);
-        // this.setState({postsData: result});
+        // console.log(result);
+        this.setState({apiCallComplete: true, postsData: result});
         Meteor.call('updatePosts', result);
-        return {
-          postsData: result
-        }
+
       }
 
     });
   },
 
-  // getInitialState() {
-  //   return {
-  //     postContent: null
-  //   };
-  // },
-
-  getPosts() {
-    console.log('get posts')
-    // return <Posts PostData={this.state.posts} />
+  getInitialState() {
+    return {
+      apiCallComplete: false
+    };
   },
 
   handleSubmit() {
@@ -39,12 +29,15 @@ Home = React.createClass({
   },
 
   render() {
-
-    return (
-      <div className="container">
-        <h1>Home</h1>
-        {this.data.postsData}
-      </div>
-    );
+    if (!this.state.apiCallComplete) {
+      return (<div>Loading...</div>);
+    } else {
+      return (
+        <div className="container">
+          <h1>Home</h1>
+          <Posts postsData={this.state.postsData} />
+        </div>
+      );
+    }
   }
 });

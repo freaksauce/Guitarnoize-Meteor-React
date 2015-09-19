@@ -1,14 +1,19 @@
 Posts = React.createClass({
 
   propTypes: {
-    PostData: React.PropTypes.object.isRequired,
+    postsData: React.PropTypes.array.isRequired,
+  },
+
+  componentDidMount() {
+    console.log(this.props.postsData);
   },
 
   render() {
     function item(post) {
       return <li>{post.title}</li>;
     };
-    return <ul>{this.props.postData.map(post)}</ul>;
+    // return <ul>{this.props.postsData.map(post)}</ul>;
+    return <h2>Post</h2>;
   }
 
 });
