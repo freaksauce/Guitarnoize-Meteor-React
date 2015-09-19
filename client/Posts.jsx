@@ -10,10 +10,9 @@ Posts = React.createClass({
 
   render() {
     function item(post) {
-      return <li>{post.title}</li>;
+      return <li key={post._id}>{post.title}</li>;
     };
-    // return <ul>{this.props.postsData.map(post)}</ul>;
-    return <h2>Post</h2>;
+    return <ul>{this.props.postsData.map(item)}</ul>;
   }
 
 });
