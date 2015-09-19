@@ -6,30 +6,32 @@ Home = React.createClass({
   mixins: [ReactMeteorData],
 
   getMeteorData() {
-    Meteor.call('getPosts', Session.get('ppp'), function(error, result) {
+    Meteor.call('getPosts', Session.get('ppp'), (error, result) => {
 
       if (error) {
         console.log(error);
       }else{
         // console.log('limit :'+Session.get('ppp'));
         console.log(result);
-        // Session.set('posts', result);
-        // Meteor.call('updatePosts', result);
-
+        // this.setState({postsData: result});
+        Meteor.call('updatePosts', result);
+        return {
+          postsData: result
+        }
       }
 
     });
-
-    return {
-
-    }
-
   },
 
-  getInitialState: function() {
-    return {
+  // getInitialState() {
+  //   return {
+  //     postContent: null
+  //   };
+  // },
 
-    };
+  getPosts() {
+    console.log('get posts')
+    // return <Posts PostData={this.state.posts} />
   },
 
   handleSubmit() {
@@ -41,6 +43,7 @@ Home = React.createClass({
     return (
       <div className="container">
         <h1>Home</h1>
+        {this.data.postsData}
       </div>
     );
   }
