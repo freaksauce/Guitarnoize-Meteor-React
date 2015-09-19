@@ -12,7 +12,9 @@ Posts = React.createClass({
 
     return <section className="">
           <h2 className="">Posts</h2>
-          {this.props.postsData.map(item)}
+          <div className="list-group">
+            {this.props.postsData.map(item)}
+          </div>
         </section>;
 
   }
