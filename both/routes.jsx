@@ -1,8 +1,5 @@
 FlowRouter.route("/", {
   name: 'home',
-  subscriptions: function() {
-    this.register('customers', Meteor.subscribe('customers'));
-  },
   action: function() {
     ReactLayout.render(Layout, {
       content: <Home />
@@ -11,11 +8,10 @@ FlowRouter.route("/", {
 });
 
 FlowRouter.route("/post/:postId", {
-  subscriptions: function() {
+  subscriptions: function(params) {
+    this.register('singlePost', Meteor.subscribe('post', params.postId));
   },
   action: function(params, queryParams) {
-    console.log(params);
-    console.log("Yeah! We are on the post:", params.postId);
     ReactLayout.render(Layout, {
       content: <Post postId={params.postId} />
     });

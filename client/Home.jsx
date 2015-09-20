@@ -1,4 +1,3 @@
-Meteor.subscribe("posts");
 Session.set('ppp', 10);
 
 Home = React.createClass({

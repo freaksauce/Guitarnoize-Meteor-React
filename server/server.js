@@ -26,7 +26,7 @@ Meteor.methods({
       myDate = post.date;
       myContent = post.content;
 
-      Posts.upsert({ID: myID}, {
+      PostsCollection.upsert({ID: myID}, {
         // Modifier
         $set: {
             ID: myID,
@@ -46,12 +46,16 @@ Meteor.methods({
     var apiUrl = "http://guitarnoize.com/wp-json/posts?filter[posts_per_page]="+ppp;
     var response = Meteor.wrapAsync(apiCall)(apiUrl);
     return response;
+  },
+
+  getLocalPost: function(postId) {
+    console.log(postId);
   }
 });
 
 Meteor.publish('posts', function () {
-  return Posts.find({}, {sort: {date: -1}});
+  return PostsCollection.find({}, {sort: {date: -1}});
 });
 Meteor.publish('post', function(postId) {
-  return Posts.find({ID: postId});
+  return PostsCollection.find({ID: postId});
 });

@@ -8,23 +8,16 @@ Post = React.createClass({
 
   getMeteorData() {
     return {
+      // postData: PostsCollection.find({'ID':this.props.postId}).fetch()
     }
   },
 
-  getInitialState: function() {
-    return {
-    };
-  },
-
-  handleSubmit() {
-    console.log('handleSubmit');
-  },
-
   render() {
-
+    console.log(this.data.postData);
     return (
       <div className="container">
         <h1>Post {this.props.postId}</h1>
+        {this.data.postData}
       </div>
     );
   }
