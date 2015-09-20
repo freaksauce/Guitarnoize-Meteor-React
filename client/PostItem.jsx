@@ -1,12 +1,12 @@
 PostItem = React.createClass({
 
   propTypes: {
-    postData: React.PropTypes.object.isRequired,
+    postItemData: React.PropTypes.object.isRequired,
   },
 
   render() {
-    console.log(this.props.postData.ID);
-    return <a className="list-group-item" href={'/post/'+this.props.postData.ID} dangerouslySetInnerHTML={{__html: this.props.postData.title}} />
+    console.log(this.props.postItemData);
+    return <a className="list-group-item" href={'/post/'+this.props.postItemData.ID} dangerouslySetInnerHTML={{__html: this.props.postItemData.title}} />
   }
 
 });

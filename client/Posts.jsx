@@ -7,7 +7,7 @@ Posts = React.createClass({
   render() {
 
     function item(post) {
-      return <PostItem postData={post} />
+      return <PostItem postItemData={post} />
     }
 
     return <section className="">
