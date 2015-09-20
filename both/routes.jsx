@@ -9,7 +9,7 @@ FlowRouter.route("/", {
 
 FlowRouter.route("/post/:postId", {
   subscriptions: function(params) {
-    this.register('singlePost', Meteor.subscribe('post', params.postId));
+    this.register('post', Meteor.subscribe('post', params.postId));
   },
   action: function(params, queryParams) {
     ReactLayout.render(Layout, {

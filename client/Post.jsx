@@ -7,17 +7,26 @@ Post = React.createClass({
   },
 
   getMeteorData() {
+    let handle = Meteor.subscribe("post", this.props.postId);
+    // console.log(!handle.ready());
     return {
-      // postData: PostsCollection.find({'ID':this.props.postId}).fetch()
-    }
+      postLoading: ! handle.ready(), // Use handle to show loading state
+      postData: PostsCollection.findOne({'ID': parseInt(this.props.postId)})
+    };
+
   },
 
   render() {
-    console.log(this.data.postData);
+    if (this.data.postLoading) {
+      // return <LoadingSpinner />;
+      console.log('loading');
+    }
+
+    // console.log(this.data.postData);
     return (
       <div className="container">
         <h1>Post {this.props.postId}</h1>
-        {this.data.postData}
+        <PostItem postData={this.data.postData} fullPost="true" />
       </div>
     );
   }
