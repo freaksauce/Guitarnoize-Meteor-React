@@ -25,11 +25,10 @@ Home = React.createClass({
 
   render() {
     if (!this.state.apiCallComplete) {
-      return (<div>Loading...</div>);
+      return (<div>Loading posts...</div>);
     } else {
       return (
         <div className="container">
-          <h1>Home</h1>
           <Posts postsData={this.state.postsData} />
         </div>
       );

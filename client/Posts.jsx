@@ -10,8 +10,7 @@ Posts = React.createClass({
       return <PostItem postItemData={post} />
     }
 
-    return <section className="">
-          <h2 className="">Posts</h2>
+    return <section>
           <div className="list-group">
             {this.props.postsData.map(item)}
           </div>
