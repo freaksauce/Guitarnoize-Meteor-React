@@ -57,5 +57,5 @@ Meteor.publish('posts', function () {
   return PostsCollection.find({}, {sort: {date: -1}});
 });
 Meteor.publish('post', function(postId) {
-  return PostsCollection.find({});
+  return PostsCollection.find({ID: parseInt(postId)});
 });
