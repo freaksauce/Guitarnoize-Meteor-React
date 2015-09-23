@@ -18,8 +18,10 @@ Post = React.createClass({
 
   callback() {
     setTimeout(function() {
-      var dataSrc = $('.lazy-hidden').attr('data-src');
-      $('.lazy-hidden').attr('src', dataSrc);
+      $.each($('.lazy-hidden'), function() {
+        var dataSrc = $(this).attr('data-src');
+        $(this).attr('src', dataSrc);
+      });
     }, 0);
   },
 
