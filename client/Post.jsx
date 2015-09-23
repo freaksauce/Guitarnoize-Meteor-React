@@ -25,8 +25,8 @@ Post = React.createClass({
 
   render() {
     if (this.data.postLoading) {
-      return <h1>Loading</h1>;
-      console.log('loading');
+      return <h2>Fetching post...</h2>;
+      // console.log('loading');
     }else{
       // console.log(this.data.postItemData);
       return (
