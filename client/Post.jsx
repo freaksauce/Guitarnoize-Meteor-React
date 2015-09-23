@@ -16,18 +16,26 @@ Post = React.createClass({
 
   },
 
+  callback() {
+    setTimeout(function() {
+      var dataSrc = $('.lazy-hidden').attr('data-src');
+      $('.lazy-hidden').attr('src', dataSrc);
+    }, 0);
+  },
+
   render() {
     if (this.data.postLoading) {
       return <h1>Loading</h1>;
       console.log('loading');
     }else{
-      console.log(this.data.postItemData);
+      // console.log(this.data.postItemData);
       return (
         <div className="container">
-          <h1>Post {this.props.postId}</h1>
-          <PostItem postItemData={this.data.postItemData} fullPost="true" />
+          <h1>{this.data.postItemData.title}</h1>
+          <div classameN="postContent" dangerouslySetInnerHTML={{__html:this.data.postItemData.content}}></div>
+          {this.callback()}
         </div>
-      );      
+      );
     }
 
   }
