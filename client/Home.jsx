@@ -28,7 +28,7 @@ Home = React.createClass({
       return (<div>Loading posts...</div>);
     } else {
       return (
-        <div className="container">
+        <div className="">
           <Posts postsData={this.state.postsData} />
         </div>
       );

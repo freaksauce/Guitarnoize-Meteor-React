@@ -30,7 +30,7 @@ Post = React.createClass({
     }else{
       // console.log(this.data.postItemData);
       return (
-        <div className="container">
+        <div className="">
           <h1>{this.data.postItemData.title}</h1>
           <div classameN="postContent" dangerouslySetInnerHTML={{__html:this.data.postItemData.content}}></div>
           {this.callback()}
