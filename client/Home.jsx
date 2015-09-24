@@ -18,11 +18,9 @@ Home = React.createClass({
         if (error) {
           console.log(error);
         }else{
-          // console.log(result);
           this.setState({postsReady: true, postsData: result});
           Meteor.call('updatePosts', result);
           ReactCookie.save('gmr-visited', true, { path: '/', maxAge: 120 });
-          // ReactCookie.save('locale', locale, { path: '/', maxAge: 3600 * 24 * 30 });
         }
       });
 
