@@ -1,5 +1,8 @@
 FlowRouter.route("/", {
   name: 'home',
+  subscriptions: function() {
+    this.register('posts', Meteor.subscribe('posts'));
+  },
   action: function() {
     ReactLayout.render(Layout, {
       content: <Home />
