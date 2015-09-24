@@ -1,4 +1,4 @@
-Session.set('ppp', 10);
+Session.set('ppp', 10); // ppp = posts per page
 
 Home = React.createClass({
 
