@@ -46,7 +46,7 @@ Meteor.methods({
     var apiUrl = "http://guitarnoize.com/wp-json/posts?filter[posts_per_page]="+ppp;
     var response = Meteor.wrapAsync(apiCall)(apiUrl);
     return response;
-  },  
+  }
 
 });
 

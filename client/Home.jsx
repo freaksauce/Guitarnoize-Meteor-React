@@ -23,8 +23,11 @@ Home = React.createClass({
           ReactCookie.save('gmr-visited', true, { path: '/', maxAge: 120 });
         }
       });
-
+    }else{
+      var posts = PostsCollection.find({}, {limit: Session.get('ppp')});
+      this.setState({postsReady: true, postsData: posts});
     }
+
   },
 
   getInitialState() {
@@ -34,17 +37,8 @@ Home = React.createClass({
   },
 
   render() {
-
     if (!this.state.postsReady) {
-      if (this.data.postsData !== null) {
-        return (
-          <div className="">
-            <Posts postsData={this.data.postsData} />
-          </div>
-        );
-      }else{
         return (<div>Loading posts...</div>);
-      }
     }else if (this.state.postsReady) {
       return (
         <div className="">

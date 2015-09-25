@@ -12,8 +12,7 @@ Post = React.createClass({
     return {
       postLoading: ! handle.ready(), // Use handle to show loading state
       postItemData: PostsCollection.findOne({'ID': parseInt(this.props.postId)})
-    };
-
+    };    
   },
 
   callback() {
